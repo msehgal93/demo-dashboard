@@ -32,6 +32,14 @@
 	    	margin: 5px auto;
 	    	height: 52px;
 	    }
+	    .custom-select {width: 200px !important; margin-right: 20px;}
+	    .mp0 {
+	    	margin: 0 !important;
+	    	padding: 0 !important;
+	    }
+	    .dataTables_info {
+	    	display: none;
+	    }
 	</style>
 
 	<link href="assets/plugins/datatables/dataTables.bootstrap.css" type="text/css" rel="stylesheet">
@@ -198,19 +206,38 @@
                             	<h1>Students</h1>
                             	<button
                             	data-toggle="modal" data-target="#myModal"
-                            	class="btn btn-default btn-raised pull-right">
+                            	class="btn btn-default btn-raised pull-right m0">
                             		Add Student
                             		<div class="ripple-container"></div>
                             	</button>
                         	</div>
                         	<div class="container-fluid">
+                        		<form class="form-inline" role="form">
+									<div class="form-group is-empty">
+										<label class="sr-only" for="exampleInputEmail2">Standard</label>
+										<select class="form-control custom-select" id="class_select">
+											<option>select standard</option>
+											<option>XII</option>
+											<option>XI</option>
+										</select>
+									<span class="material-input"></span></div>
+									<div class="form-group is-empty">
+										<label class="sr-only" for="exampleInputPassword2">Section</label>
+										<select class="form-control custom-select" id="section_select">
+											<option>select section</option>
+											<option>A</option>
+											<option>B</option>
+										</select>
+									<span class="material-input"></span></div>
+									<button id="main_btn" type="submit" class="btn btn-default btn-raised">Apply</button>
+								</form>
 
 <div data-widget-group="group1">
 	<div class="row">
 		<div class="col-md-12">
 			<div class="panel panel-default">
 				<div class="panel-heading">
-					<h2>All Student Data</h2>
+					<h2 id="show_count">Total Students: 6</h2>
 					<div class="panel-ctrls"></div>
 				</div>
 				<div class="panel-body no-padding">
@@ -224,7 +251,7 @@
 							</tr>
 						</thead>
 						<tbody>
-							<tr class="odd gradeX">
+							<tr class="odd gradeX class-xii section-a">
 								<td>
 									<button
 									data-toggle="modal" data-target="#myModal1"
@@ -239,7 +266,7 @@
 								<td class="center">17</td>
 								<td class="center">M</td>
 							</tr>
-							<tr class="odd gradeX">
+							<tr class="odd gradeX class-xii section-b">
 								<td>
 									<button
 									data-toggle="modal" data-target="#myModal1"
@@ -250,11 +277,11 @@
 									&nbsp;
 									Sid
 								</td>
-								<td>XII A</td>
+								<td>XII B</td>
 								<td class="center">17</td>
 								<td class="center">M</td>
 							</tr>
-							<tr class="odd gradeX">
+							<tr class="odd gradeX class-xi section-a">
 								<td>
 									<button
 									data-toggle="modal" data-target="#myModal1"
@@ -265,11 +292,11 @@
 									&nbsp;
 									Karishma
 								</td>
-								<td>XII B</td>
+								<td>XI A</td>
 								<td class="center">17</td>
 								<td class="center">F</td>
 							</tr>
-							<tr class="odd gradeX">
+							<tr class="odd gradeX class-xi section-b">
 								<td>
 									<button
 									data-toggle="modal" data-target="#myModal1"
@@ -280,11 +307,11 @@
 									&nbsp;
 									ABC
 								</td>
-								<td>XII C</td>
+								<td>XI B</td>
 								<td class="center">17</td>
 								<td class="center">F</td>
 							</tr>
-							<tr class="odd gradeX">
+							<tr class="odd gradeX class-xi section-a">
 								<td>
 									<button
 									data-toggle="modal" data-target="#myModal1"
@@ -293,13 +320,13 @@
 										<div class="ripple-container"></div>
 									</button>
 									&nbsp;
-									mkn kmmm
+									mukul
 								</td>
-								<td>XII C</td>
+								<td>XI A</td>
 								<td class="center">18</td>
 								<td class="center">M</td>
 							</tr>
-							<tr class="odd gradeX">
+							<tr class="odd gradeX class-xi section-b">
 								<td>
 									<button
 									data-toggle="modal" data-target="#myModal1"
@@ -308,220 +335,10 @@
 										<div class="ripple-container"></div>
 									</button>
 									&nbsp;
-									Mohit Sehgal
+									Mohit
 								</td>
-								<td>XII A</td>
+								<td>XI B</td>
 								<td class="center">17</td>
-								<td class="center">M</td>
-							</tr>
-							<tr class="odd gradeX">
-								<td>
-									<button
-									data-toggle="modal" data-target="#myModal1"
-									class="btn btn-default btn-raised btn-xs">
-										view
-										<div class="ripple-container"></div>
-									</button>
-									&nbsp;
-									Sid
-								</td>
-								<td>XII A</td>
-								<td class="center">17</td>
-								<td class="center">M</td>
-							</tr>
-							<tr class="odd gradeX">
-								<td>
-									<button
-									data-toggle="modal" data-target="#myModal1"
-									class="btn btn-default btn-raised btn-xs">
-										view
-										<div class="ripple-container"></div>
-									</button>
-									&nbsp;
-									Karishma
-								</td>
-								<td>XII B</td>
-								<td class="center">17</td>
-								<td class="center">F</td>
-							</tr>
-							<tr class="odd gradeX">
-								<td>
-									<button
-									data-toggle="modal" data-target="#myModal1"
-									class="btn btn-default btn-raised btn-xs">
-										view
-										<div class="ripple-container"></div>
-									</button>
-									&nbsp;
-									ABC
-								</td>
-								<td>XII C</td>
-								<td class="center">17</td>
-								<td class="center">F</td>
-							</tr>
-							<tr class="odd gradeX">
-								<td>
-									<button
-									data-toggle="modal" data-target="#myModal1"
-									class="btn btn-default btn-raised btn-xs">
-										view
-										<div class="ripple-container"></div>
-									</button>
-									&nbsp;
-									mkn kmmm
-								</td>
-								<td>XII C</td>
-								<td class="center">18</td>
-								<td class="center">M</td>
-							</tr>
-							<tr class="odd gradeX">
-								<td>
-									<button
-									data-toggle="modal" data-target="#myModal1"
-									class="btn btn-default btn-raised btn-xs">
-										view
-										<div class="ripple-container"></div>
-									</button>
-									&nbsp;
-									Mohit Sehgal
-								</td>
-								<td>XII A</td>
-								<td class="center">17</td>
-								<td class="center">M</td>
-							</tr>
-							<tr class="odd gradeX">
-								<td>
-									<button
-									data-toggle="modal" data-target="#myModal1"
-									class="btn btn-default btn-raised btn-xs">
-										view
-										<div class="ripple-container"></div>
-									</button>
-									&nbsp;
-									Sid
-								</td>
-								<td>XII A</td>
-								<td class="center">17</td>
-								<td class="center">M</td>
-							</tr>
-							<tr class="odd gradeX">
-								<td>
-									<button
-									data-toggle="modal" data-target="#myModal1"
-									class="btn btn-default btn-raised btn-xs">
-										view
-										<div class="ripple-container"></div>
-									</button>
-									&nbsp;
-									Karishma
-								</td>
-								<td>XII B</td>
-								<td class="center">17</td>
-								<td class="center">F</td>
-							</tr>
-							<tr class="odd gradeX">
-								<td>
-									<button
-									data-toggle="modal" data-target="#myModal1"
-									class="btn btn-default btn-raised btn-xs">
-										view
-										<div class="ripple-container"></div>
-									</button>
-									&nbsp;
-									ABC
-								</td>
-								<td>XII C</td>
-								<td class="center">17</td>
-								<td class="center">F</td>
-							</tr>
-							<tr class="odd gradeX">
-								<td>
-									<button
-									data-toggle="modal" data-target="#myModal1"
-									class="btn btn-default btn-raised btn-xs">
-										view
-										<div class="ripple-container"></div>
-									</button>
-									&nbsp;
-									mkn kmmm
-								</td>
-								<td>XII C</td>
-								<td class="center">18</td>
-								<td class="center">M</td>
-							</tr>
-							<tr class="odd gradeX">
-								<td>
-									<button
-									data-toggle="modal" data-target="#myModal1"
-									class="btn btn-default btn-raised btn-xs">
-										view
-										<div class="ripple-container"></div>
-									</button>
-									&nbsp;
-									Mohit Sehgal
-								</td>
-								<td>XII A</td>
-								<td class="center">17</td>
-								<td class="center">M</td>
-							</tr>
-							<tr class="odd gradeX">
-								<td>
-									<button
-									data-toggle="modal" data-target="#myModal1"
-									class="btn btn-default btn-raised btn-xs">
-										view
-										<div class="ripple-container"></div>
-									</button>
-									&nbsp;
-									Sid
-								</td>
-								<td>XII A</td>
-								<td class="center">17</td>
-								<td class="center">M</td>
-							</tr>
-							<tr class="odd gradeX">
-								<td>
-									<button
-									data-toggle="modal" data-target="#myModal1"
-									class="btn btn-default btn-raised btn-xs">
-										view
-										<div class="ripple-container"></div>
-									</button>
-									&nbsp;
-									Karishma
-								</td>
-								<td>XII B</td>
-								<td class="center">17</td>
-								<td class="center">F</td>
-							</tr>
-							<tr class="odd gradeX">
-								<td>
-									<button
-									data-toggle="modal" data-target="#myModal1"
-									class="btn btn-default btn-raised btn-xs">
-										view
-										<div class="ripple-container"></div>
-									</button>
-									&nbsp;
-									ABC
-								</td>
-								<td>XII C</td>
-								<td class="center">17</td>
-								<td class="center">F</td>
-							</tr>
-							<tr class="odd gradeX">
-								<td>
-									<button
-									data-toggle="modal" data-target="#myModal1"
-									class="btn btn-default btn-raised btn-xs">
-										view
-										<div class="ripple-container"></div>
-									</button>
-									&nbsp;
-									mkn kmmm
-								</td>
-								<td>XII C</td>
-								<td class="center">18</td>
 								<td class="center">M</td>
 							</tr>
 						</tbody>
@@ -944,6 +761,39 @@
 <script src="assets/demo/demo-datatables.js"></script>
 
     <!-- End loading page level scripts-->
+    <script type="text/javascript">
+    	$('#main_btn').on('click', function(e){
+    		e.preventDefault();
+    		e.stopPropagation();
+
+    		var clas = $('#class_select').val().toLowerCase();
+    		var section = $('#section_select').val().toLowerCase();
+
+    		// console.log( $('#class_select').val() );
+    		// "select standard"
+    		// console.log( $('#section_select').val() );
+    		// select section
+    		if(clas !== "select standard" && section !== "select section" ) {
+    			$('.gradeX').hide();
+    			$('.class-'+clas+'.section-'+section).show();
+    			$('#show_count').text('Total Students: '+$('.class-'+clas+'.section-'+section).length)
+    		}
+    		else if(clas !== "select standard") {
+    			$('.gradeX').hide();
+    			$('.class-'+clas).show();
+    			$('#show_count').text('Total Students: '+$('.class-'+clas).length)
+    		}
+    		else if(section !== "select section" ) {
+    			$('.gradeX').hide();
+    			$('.section-'+section).show();
+    			$('#show_count').text('Total Students: '+$('.section-'+section).length)
+    		}
+    		else {
+    			$('.gradeX').show();
+    			$('#show_count').text('Total Students: 6');
+    		}
+    	});
+    </script>
 
     </body>
 </html>

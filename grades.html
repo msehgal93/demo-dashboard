@@ -32,10 +32,13 @@
 	    	margin: 5px auto;
 	    	height: 52px;
 	    }
-	    .custom-select {width: 200px !important; margin-right: 20px;}
+	    .custom-select {width: 150px !important; margin-right: 20px;}
 	    .mp0 {
 	    	margin: 0 !important;
 	    	padding: 0 !important;
+	    }
+	    .dataTables_info {
+	    	display: none;
 	    }
 	</style>
 
@@ -210,45 +213,50 @@
 			<form class="form-inline" role="form">
 				<div class="form-group is-empty">
 					<label class="sr-only" for="exampleInputEmail2">Standard</label>
-					<select class="form-control custom-select">
-						<option>select standard</option>
+					<select class="form-control custom-select"  id="class_select">
+						<option value="">standard</option>
 						<option>XII</option>
-						<option>XI</option>
-						<option>X</option>
 					</select>
 				<span class="material-input"></span></div>
 				<div class="form-group is-empty">
 					<label class="sr-only" for="exampleInputPassword2">Subject</label>
-					<select class="form-control custom-select">
-						<option>select subject</option>
-						<option>English</option>
-						<option>Maths</option>
+					<select class="form-control custom-select" id="section_select">
+						<option value="">section</option>
+						<option>A</option>
+						<option>B</option>
 					</select>
 				<span class="material-input"></span></div>
-				<button type="submit" class="btn btn-default btn-raised">Apply</button>
+				<div class="form-group is-empty">
+					<label class="sr-only" for="exampleInputPassword2">Subject</label>
+					<select class="form-control custom-select" id="subject_select">
+						<option value="">subject</option>
+						<option value="es">Embedded Series</option>
+						<option value="rs">Robotics Series</option>
+						<option value="vs">VR Series</option>
+						<option value="ls">Lego Series</option>
+					</select>
+				<span class="material-input"></span></div>
+				<button type="submit" id="main_btn" class="btn btn-default btn-raised">Apply</button>
 			</form>
 			<br><br>
 			<div class="panel panel-default">
 				<div class="panel-body no-padding">
+					<h4 id="show_count" style="margin-left: 10px;">Total Students: 8</h4>
 					<table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
 						<thead>
 							<tr>
 								<th>Name</th>
-								<th>Present</th>
+								<th>Class</th>
 								<th>Grade</th>
 							</tr>
 						</thead>
 						<tbody>
-							<tr>
+							<tr class="gradeX class-xii section-a es">
 								<td style="cursor: pointer;" data-toggle="modal" data-target="#myModal1">
 									<label>Mohit Sehgal</label>
 									<i class="material-icons">launch</i>
 								</td>
-								<td>
-									<div class="form-inline">
-										<div class="checkbox"><label><input type="checkbox"></label></div>
-									</div>
-								</td>
+								<td>XII A</td>
 								<td>
 									<div class="form-inline">
 										<select name="selector1" id="selector1" class="form-control mp0">
@@ -262,16 +270,12 @@
 									</div>
 								</td>
 							</tr>
-							<tr>
+							<tr class="gradeX class-xii section-a rs">
 								<td style="cursor: pointer;" data-toggle="modal" data-target="#myModal1">
 									<label>Sid</label>
 									<i class="material-icons">launch</i>
 								</td>
-								<td>
-									<div class="form-inline">
-										<div class="checkbox"><label><input type="checkbox"></label></div>
-									</div>
-								</td>
+								<td>XII A</td>
 								<td>
 									<div class="form-inline">
 										<select name="selector1" id="selector1" class="form-control mp0">
@@ -285,16 +289,107 @@
 									</div>
 								</td>
 							</tr>
-							<tr>
+							<tr class="gradeX class-xii section-a vs">
 								<td style="cursor: pointer;" data-toggle="modal" data-target="#myModal1">
 									<label>Karishma</label>
 									<i class="material-icons">launch</i>
 								</td>
+								<td>XII A</td>
 								<td>
 									<div class="form-inline">
-										<div class="checkbox"><label><input type="checkbox"></label></div>
+										<select name="selector1" id="selector1" class="form-control mp0">
+											<option>select</option>
+											<option>A</option>
+											<option>B</option>
+											<option>C</option>
+											<option>D</option>
+											<option>E</option>
+										</select>
 									</div>
 								</td>
+							</tr>
+							<tr class="gradeX class-xii section-a ls">
+								<td style="cursor: pointer;" data-toggle="modal" data-target="#myModal1">
+									<label>Chetna</label>
+									<i class="material-icons">launch</i>
+								</td>
+								<td>XII A</td>
+								<td>
+									<div class="form-inline">
+										<select name="selector1" id="selector1" class="form-control mp0">
+											<option>select</option>
+											<option>A</option>
+											<option>B</option>
+											<option>C</option>
+											<option>D</option>
+											<option>E</option>
+										</select>
+									</div>
+								</td>
+							</tr>
+							<tr class="gradeX class-xii section-b es">
+								<td style="cursor: pointer;" data-toggle="modal" data-target="#myModal1">
+									<label>Anil</label>
+									<i class="material-icons">launch</i>
+								</td>
+								<td>XII B</td>
+								<td>
+									<div class="form-inline">
+										<select name="selector1" id="selector1" class="form-control mp0">
+											<option>select</option>
+											<option>A</option>
+											<option>B</option>
+											<option>C</option>
+											<option>D</option>
+											<option>E</option>
+										</select>
+									</div>
+								</td>
+							</tr>
+							<tr class="gradeX class-xii section-b rs">
+								<td style="cursor: pointer;" data-toggle="modal" data-target="#myModal1">
+									<label>Salman</label>
+									<i class="material-icons">launch</i>
+								</td>
+								<td>XII B</td>
+								<td>
+									<div class="form-inline">
+										<select name="selector1" id="selector1" class="form-control mp0">
+											<option>select</option>
+											<option>A</option>
+											<option>B</option>
+											<option>C</option>
+											<option>D</option>
+											<option>E</option>
+										</select>
+									</div>
+								</td>
+							</tr>
+							<tr class="gradeX class-xii section-b vs">
+								<td style="cursor: pointer;" data-toggle="modal" data-target="#myModal1">
+									<label>Kartik</label>
+									<i class="material-icons">launch</i>
+								</td>
+								<td>XII B</td>
+								<td>
+									<div class="form-inline">
+										<select name="selector1" id="selector1" class="form-control mp0">
+											<option>select</option>
+											<option>A</option>
+											<option>B</option>
+											<option>C</option>
+											<option>D</option>
+											<option>E</option>
+										</select>
+									</div>
+								</td>
+							</tr>
+							<tr class="gradeX class-xii section-b ls">
+								<td style="cursor: pointer;" data-toggle="modal" data-target="#myModal1">
+									<label>Smriti</label>
+									<i class="material-icons">launch</i>
+								</td>
+								<td>XII B</td>
 								<td>
 									<div class="form-inline">
 										<select name="selector1" id="selector1" class="form-control mp0">
@@ -314,22 +409,12 @@
 			</div>
 		</div>
 		<div class="col-md-4">
-			<div class="panel panel-salesfigure">
+			<div class="panel panel-default" data-widget='{"draggable": "false"}'>
 				<div class="panel-heading">
-					<h2>Attendence</h2>
+					<h2>Grade Distribution</h2>
 				</div>
 				<div class="panel-body">
-					<div class="full-bg">
-						<div class="easypiechart" id="chart1" data-percent="95">
-							<span class="percent percent-big"></span>
-						</div>
-					</div>
-					<div class="pt-md pull-left">
-						<h4 class="mt-n mb-n pt-xs"><small class="mt-n mb-sm">Present</small>19</h4>
-					</div>
-					<div class="pt-md pull-right text-right">
-						<h4 class="mt-n mb-n pt-xs"><small class="mt-n mb-sm">Total</small>20</h4>
-					</div>
+					<div id="interactive" style="width:100%; height: 300px" class="centered"></div>
 				</div>
 			</div>
 		</div>
@@ -653,24 +738,86 @@
 <script src="assets/plugins/datatables/dataTables.bootstrap.js"></script>
 <script src="assets/demo/demo-datatables.js"></script>
 
+
+    <script src="assets/plugins/charts-flot/jquery.flot.min.js"></script>             <!-- Flot Main File -->
+    <script src="assets/plugins/charts-flot/jquery.flot.stack.min.js"></script>       <!-- Flot Stacked Charts Plugin -->
+    <script src="assets/plugins/charts-flot/jquery.flot.pie.min.js"></script>         <!-- Flot Pie Chart Plugin -->
+    <script src="assets/plugins/charts-flot/jquery.flot.orderBars.min.js"></script>   <!-- Flot Ordered Bars Plugin-->
+    <script src="assets/plugins/charts-flot/jquery.flot.resize.js"></script>          <!-- Flot Responsive -->
+
+    <script src="assets/plugins/charts-flot/jquery.flot.tooltip.min.js"></script>    <!-- Flot Tooltips -->
+
     <!-- End loading page level scripts-->
     <script type="text/javascript">
-		// Easypie chart
-	    try{
-	        $('.easypiechart#chart1').easyPieChart({
-	            barColor: "#00bcd4",
-	            trackColor: 'rgba(255,255,255,0.1)',
-	            scaleColor: 'transparent',
-	            scaleLength: 8,
-	            lineCap: 'round',
-	            lineWidth: 4,
-	            size: 144,
-	            onStep: function(from, to, percent) {
-	                $(this.el).find('.percent').text(Math.round(percent));
-	            }
-	        });
-	    }
-	    catch(e){}
+	var datax = [
+        { label: "Grade A",  data: 100, color: Utility.getBrandColor('info')},
+        { label: "Grade B",  data: 40, color: Utility.getBrandColor('success')},
+        { label: "Grade C",  data: 30, color: Utility.getBrandColor('warning')},
+        { label: "Grade D",  data: 10, color: Utility.getBrandColor('danger')}
+    ];
+
+    	$(document).ready(function(){
+
+    		$.plot($("#interactive"), datax,
+    		{
+    			series: {
+    				pie: {
+    					show: true
+    				}
+    			},
+    			grid: {
+    				hoverable: true,
+    				clickable: true
+    			},
+    			legend: {
+    				show: false
+    			},
+    			tooltip: true,
+    			tooltipOpts: {
+    				content: "%p.0%, %s"
+    			}
+
+    		});
+    		$("#interactive").bind("plothover", pieHover);
+
+
+    		$('#main_btn').on('click', function(e){
+	    		e.preventDefault();
+	    		e.stopPropagation();
+
+	    		var clas = $('#class_select').val().toLowerCase();
+	    		var section = $('#section_select').val().toLowerCase();
+	    		var subject = $('#subject_select').val().toLowerCase();
+
+	    		if(section !== "" && subject !== "" ) {
+	    			$('.gradeX').hide();
+	    			$('.section-'+section+'.'+subject).show();
+	    			$('#show_count').text('Total Students: '+$('.section-'+section+'.'+subject).length)
+	    		}
+	    		else if(subject !== "") {
+	    			$('.gradeX').hide();
+	    			$('.'+subject).show();
+	    			$('#show_count').text('Total Students: '+$('.'+subject).length)
+	    		}
+	    		else if(section !== "" ) {
+	    			$('.gradeX').hide();
+	    			$('.section-'+section).show();
+	    			$('#show_count').text('Total Students: '+$('.section-'+section).length)
+	    		}
+	    		else {
+	    			$('.gradeX').show();
+	    			$('#show_count').text('Total Students: 8');
+	    		}
+	    	});
+
+    	});
+		function pieHover(event, pos, obj)
+		{
+			if (!obj)
+				return;
+			percent = parseFloat(obj.series.percent).toFixed(2);
+			$("#hover").html('<span style="font-weight: bold; color: '+obj.series.color+'">'+obj.series.label+' ('+percent+'%)</span>');
+		}
     </script>
     </body>
 </html>
