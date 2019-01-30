@@ -37,6 +37,13 @@
 	    	margin: 0 !important;
 	    	padding: 0 !important;
 	    }
+	    .page-heading {
+	    	margin-bottom: 0;
+	    	padding-bottom: 15px;
+	    }
+	    .dataTables_info {
+	    	display: none;
+	    }
 	</style>
 
 		<link href="assets/plugins/chartist/dist/chartist.min.css" type="text/css" rel="stylesheet"> <!-- chartist -->
@@ -210,100 +217,81 @@
 		<div class="col-md-8">
 			<form class="form-inline" role="form">
 				<div class="form-group is-empty">
-					<label class="sr-only" for="exampleInputEmail2">Session</label>
-					<select class="form-control custom-select">
-						<option>select session</option>
-						<option>Physics 101</option>
-						<option>Biology 104</option>
-						<option>English 105</option>
+					<label class="sr-only" for="exampleInputEmail2">Standard</label>
+					<select class="form-control custom-select"  id="class_select">
+						<option>select standard</option>
+						<option>XII</option>
+						<option>XI</option>
 					</select>
 				<span class="material-input"></span></div>
-				<button type="submit" class="btn btn-default btn-raised">Apply</button>
+				<div class="form-group is-empty">
+					<label class="sr-only" for="exampleInputPassword2">Section</label>
+					<select class="form-control custom-select" id="section_select">
+						<option>select section</option>
+						<option>A</option>
+						<option>B</option>
+					</select>
+				<span class="material-input"></span></div>
+				<button type="submit" id="main_btn" class="btn btn-default btn-raised">Apply</button>
 			</form>
 			<br><br>
-			<div class="panel panel-default">
-				<div class="panel-heading">
-					<h2>Teacher's Name: &nbsp;&nbsp;<b>Smita Pant</b></h2>
-					<div class="panel-ctrls"></div>
+				<div class="row">
+					<div class="col-sm-3" id="show_count">
+						Total Students: 4
+					</div>
+					<div class="col-sm-3">
+						Teacher: <b>Smita Pant</b>
+					</div>
+					<div class="col-sm-3">
+						Avg Attendence: <b>98%</b>
+					</div>
+					<div class="col-sm-3">
+						Avg Grade: <b>A</b>
+					</div>
 				</div>
+			<br>
+			<div class="panel panel-default">
 				<div class="panel-body no-padding">
 					<table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
 						<thead>
 							<tr>
 								<th>Name</th>
-								<th>Present</th>
-								<th>Grade</th>
+								<th>Avg. Attendence</th>
+								<th>Avg. Grade</th>
 							</tr>
 						</thead>
 						<tbody>
-							<tr>
+							<tr class="gradeX class-xii section-a">
 								<td style="cursor: pointer;" data-toggle="modal" data-target="#myModal1">
 									<label>Mohit Sehgal</label>
 									<i class="material-icons">launch</i>
 								</td>
-								<td>
-									<div class="form-inline">
-										<div class="checkbox"><label><input type="checkbox" checked=""></label></div>
-									</div>
-								</td>
-								<td>
-									<div class="form-inline">
-										<select name="selector1" id="selector1" class="form-control mp0">
-											<option>select</option>
-											<option>A</option>
-											<option>B</option>
-											<option>C</option>
-											<option selected="">D</option>
-											<option>E</option>
-										</select>
-									</div>
-								</td>
+								<td>96%</td>
+								<td>B</td>
 							</tr>
-							<tr>
+							<tr class="gradeX class-xii section-b">
 								<td style="cursor: pointer;" data-toggle="modal" data-target="#myModal1">
 									<label>Sid</label>
 									<i class="material-icons">launch</i>
 								</td>
-								<td>
-									<div class="form-inline">
-										<div class="checkbox"><label><input type="checkbox" checked=""></label></div>
-									</div>
-								</td>
-								<td>
-									<div class="form-inline">
-										<select name="selector1" id="selector1" class="form-control mp0">
-											<option>select</option>
-											<option selected="">A</option>
-											<option>B</option>
-											<option>C</option>
-											<option>D</option>
-											<option>E</option>
-										</select>
-									</div>
-								</td>
+								<td>99%</td>
+								<td>A</td>
 							</tr>
-							<tr>
+							<tr class="gradeX class-xi section-a">
 								<td style="cursor: pointer;" data-toggle="modal" data-target="#myModal1">
 									<label>Karishma</label>
 									<i class="material-icons">launch</i>
 								</td>
-								<td>
-									<div class="form-inline">
-										<div class="checkbox"><label><input type="checkbox" checked=""></label></div>
-									</div>
+								<td>90%</td>
+								<td>C</td>
+							</tr>
+							<tr class="gradeX class-xi section-b">
+								<td style="cursor: pointer;" data-toggle="modal" data-target="#myModal1">
+									<label>Animesh</label>
+									<i class="material-icons">launch</i>
 								</td>
-								<td>
-									<div class="form-inline">
-										<select name="selector1" id="selector1" class="form-control mp0">
-											<option>select</option>
-											<option>A</option>
-											<option selected="">B</option>
-											<option>C</option>
-											<option>D</option>
-											<option>E</option>
-										</select>
-									</div>
-								</td>
+								<td>83%</td>
+								<td>A</td>
 							</tr>
 						</tbody>
 					</table>
@@ -671,6 +659,34 @@
 
     <!-- End loading page level scripts-->
     <script type="text/javascript">
+    	$('#main_btn').on('click', function(e){
+    		e.preventDefault();
+    		e.stopPropagation();
+
+    		var clas = $('#class_select').val().toLowerCase();
+    		var section = $('#section_select').val().toLowerCase();
+
+    		if(clas !== "select standard" && section !== "select section" ) {
+    			$('.gradeX').hide();
+    			$('.class-'+clas+'.section-'+section).show();
+    			$('#show_count').text('Total Students: '+$('.class-'+clas+'.section-'+section).length)
+    		}
+    		else if(clas !== "select standard") {
+    			$('.gradeX').hide();
+    			$('.class-'+clas).show();
+    			$('#show_count').text('Total Students: '+$('.class-'+clas).length)
+    		}
+    		else if(section !== "select section" ) {
+    			$('.gradeX').hide();
+    			$('.section-'+section).show();
+    			$('#show_count').text('Total Students: '+$('.section-'+section).length)
+    		}
+    		else {
+    			$('.gradeX').show();
+    			$('#show_count').text('Total Students: 6');
+    		}
+    	});
+
 		// Easypie chart
 	    try{
 	        $('.easypiechart#chart1').easyPieChart({
