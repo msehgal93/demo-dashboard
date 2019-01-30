@@ -30,7 +30,6 @@ c) Students Tab
 
 2. Can we have the total number of students in that selected grade-section also displayed?
 -- okay
-----
 
 
 
@@ -42,6 +41,7 @@ Robotics Series etc
 -- okay
 3. Rather than attendance, let us have average grade for class (A+ grade-4, A grade- 3.5, B+ grade- 3, B grade- 2.5, C+ grade-2, C grade-1, F grade-0)?
 *-- lets have a pie chart depecting grades*
+----
 
 
 
