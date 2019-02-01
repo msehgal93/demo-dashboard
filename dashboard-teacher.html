@@ -40,6 +40,10 @@
 			margin: 5px auto;
 			height: 52px;
 		}
+		.page-heading {
+			margin-bottom: 0;
+			padding-bottom: 16px;
+		}
 	</style>
 
 </head>
@@ -202,18 +206,20 @@
 		<div class="page-content">
 			<div class="page-heading">
 				<h1>Dashboard<small>Session Statistics</small></h1>
-				<div class="options">
-				    <div class="btn-toolbar">
-				        <a href="javascript:void(0)"  data-toggle="modal" data-target="#myModal1" class="btn btn-default" style="vertical-align: top;">
-				        	<i class="material-icons">filter_list</i>
-				        	Filters
-				        </a>
-				    </div>
-				</div>
 			</div>
 			<div class="container-fluid">
 				<div data-widget-group="group1">
 					<div class="row">
+						<div class="text-center">
+							<h3 id="title_subject">Lego Series</h3>
+							<h5 id="title_class_section">XII - A |
+								<a href="javascript:void(0)"  data-toggle="modal" data-target="#myModal1" class="btn btn-xs">
+						        	<i class="material-icons">filter_list</i>
+						        	filter
+						        </a>
+							</h5>
+							<br>
+						</div>
 
 						<div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
 							<div class="info-tile info-tile-alt tile-indigo">
@@ -311,20 +317,31 @@
 							<form class="form-horizontal">
 								<div class="form-group">
 									<label for="focusedinput" class="col-sm-4 control-label">Session/Grade</label>
-									<div class="col-sm-8"><select name="selector1" id="selector1" class="form-control">
-										<option>- select session -</option>
-										<option>Lego Series</option>
+									<div class="col-sm-8"><select id="selector1" class="form-control">
+										<option value="">- select session -</option>
+										<option selected="">Lego Series</option>
 										<option>Embedded Series</option>
 									</select></div>
 								</div>
 
 								<div class="form-group">
 									<label for="focusedinput" class="col-sm-4 control-label">Class</label>
-									<div class="col-sm-8"><select name="selector1" id="selector1" class="form-control">
-										<option>- select class -</option>
-										<option>XII</option>
+									<div class="col-sm-8"><select id="selector2" class="form-control">
+										<option value="">- select class -</option>
+										<option selected="">XII</option>
 										<option>XI</option>
 										<option>X</option>
+									</select></div>
+								</div>
+
+								<div class="form-group">
+									<label for="focusedinput" class="col-sm-4 control-label">Section</label>
+									<div class="col-sm-8"><select id="selector3" class="form-control">
+										<option value="">- select section -</option>
+										<option selected="">A</option>
+										<option>B</option>
+										<option>C</option>
+										<option>D</option>
 									</select></div>
 								</div>
 
@@ -591,8 +608,20 @@
 			e.preventDefault();
 			e.stopPropagation();
 
-			$('.tile-danger .tile-body span').text( parseInt( Math.random() * 8, 10));
-			$('.tile-primary .tile-body span').text( parseInt( Math.random() * 1000 + 1, 10));
+			$('#title_subject').text( $("#selector1").val() === "" ?
+				"All Subjects" : $("#selector1").val() );
+
+			$('#title_class_section').text(
+				($("#selector2").val() === "" ?
+				"All Classes" :
+				$("#selector2").val()) + " - " +
+				($("#selector3").val() === "" ?
+				"All Sections" :
+				$("#selector3").val())
+			);
+
+			$('.tile-danger .tile-body span').text( parseInt( (Math.random() * 10) , 10) % 8 + 1 );
+			$('.tile-primary .tile-body span').text( parseInt( Math.random() * 1000, 10) + 1);
 
 			$("#myModal1").modal('toggle');
 		})
