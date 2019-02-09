@@ -749,37 +749,51 @@
 
     <!-- End loading page level scripts-->
     <script type="text/javascript">
-	var datax = [
-        { label: "Grade A",  data: 100, color: Utility.getBrandColor('info')},
-        { label: "Grade B",  data: 40, color: Utility.getBrandColor('success')},
-        { label: "Grade C",  data: 30, color: Utility.getBrandColor('warning')},
-        { label: "Grade D",  data: 10, color: Utility.getBrandColor('danger')}
-    ];
+    	var plotPie = null;
 
     	$(document).ready(function(){
 
-    		$.plot($("#interactive"), datax,
-    		{
-    			series: {
-    				pie: {
-    					show: true
-    				}
-    			},
-    			grid: {
-    				hoverable: true,
-    				clickable: true
-    			},
-    			legend: {
-    				show: false
-    			},
-    			tooltip: true,
-    			tooltipOpts: {
-    				content: "%p.0%, %s"
-    			}
+			function pieHover(event, pos, obj){
+				if (!obj)
+					return;
+				percent = parseFloat(obj.series.percent).toFixed(2);
+				$("#hover").html('<span style="font-weight: bold; color: '+obj.series.color+'">'+obj.series.label+' ('+percent+'%)</span>');
+			}
 
-    		});
-    		$("#interactive").bind("plothover", pieHover);
+    		plotPie = function(){
+    			var datax = [
+    			{ label: "Grade A",
+	    			data : parseInt( (Math.random() * 100) , 10) + 1,
+	    			color: Utility.getBrandColor('info')},
+    			{ label: "Grade B",  data : parseInt( (Math.random() * 10) , 10)*4 + 1, color: Utility.getBrandColor('success')},
+    			{ label: "Grade C", data : parseInt( (Math.random() * 10) , 10)*3 + 1, color: Utility.getBrandColor('warning')},
+    			{ label: "Grade D", data : parseInt( (Math.random() * 10) , 10) + 1, color: Utility.getBrandColor('danger')}
+    			];
 
+	    		$.plot($("#interactive"), datax,
+	    		{
+	    			series: {
+	    				pie: {
+	    					show: true
+	    				}
+	    			},
+	    			grid: {
+	    				hoverable: true,
+	    				clickable: true
+	    			},
+	    			legend: {
+	    				show: false
+	    			},
+	    			tooltip: true,
+	    			tooltipOpts: {
+	    				content: "%p.0%, %s"
+	    			}
+
+	    		});
+	    		$("#interactive").bind("plothover", pieHover);
+    		}
+
+    		plotPie();
 
     		$('#main_btn').on('click', function(e){
 	    		e.preventDefault();
@@ -808,16 +822,12 @@
 	    			$('.gradeX').show();
 	    			$('#show_count').text('Total Students: 8');
 	    		}
+
+	    		plotPie();
 	    	});
 
     	});
-		function pieHover(event, pos, obj)
-		{
-			if (!obj)
-				return;
-			percent = parseFloat(obj.series.percent).toFixed(2);
-			$("#hover").html('<span style="font-weight: bold; color: '+obj.series.color+'">'+obj.series.label+' ('+percent+'%)</span>');
-		}
+
     </script>
     </body>
 </html>

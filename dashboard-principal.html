@@ -274,7 +274,7 @@
 			</div>
 		</div>
 
-		<div class="row .main-data">
+		<div class="row main-data">
 			<div class="text-center">
 				<h3>Current Statistics</h3>
 				<h5 style="display: inline;" id="title_text">showing data for: XII A</h5>
@@ -620,6 +620,9 @@
 
 	<!-- End loading page level scripts-->
 	<script type="text/javascript">
+	var plotGraph = null;
+
+	$(document).ready(function(){
 
 		$('#filter_btn').on('click', function(e){
 			e.preventDefault();
@@ -634,12 +637,14 @@
 				$('#selector2').val()
 			);
 
+			plotGraph();
+
 
 			$("#myModal1").modal('toggle');
 		});
 
 
-		function plotGraph(){
+		plotGraph = function(){
 		    // Ordered Bars
 
 		    var do1 = [];
@@ -704,6 +709,7 @@
 		    });
 		}
 		plotGraph();
+	});
 
 	</script>
 

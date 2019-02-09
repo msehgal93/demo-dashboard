@@ -658,35 +658,79 @@
 
     <!-- End loading page level scripts-->
     <script type="text/javascript">
-    	var datax = [
-    	{ label: "Grade A",  data: 100, color: Utility.getBrandColor('info')},
-    	{ label: "Grade B",  data: 40, color: Utility.getBrandColor('success')},
-    	{ label: "Grade C",  data: 30, color: Utility.getBrandColor('warning')},
-    	{ label: "Grade D",  data: 10, color: Utility.getBrandColor('danger')}
-    	];
+    var plotPie = null, plotPercentagePieChart = null;
 
-    	$.plot($("#interactive"), datax,
-    	{
-    		series: {
-    			pie: {
-    				show: true
+	$(document).ready(function(){
+
+		function pieHover(event, pos, obj){
+			if (!obj)
+				return;
+			percent = parseFloat(obj.series.percent).toFixed(2);
+			$("#hover").html('<span style="font-weight: bold; color: '+obj.series.color+'">'+obj.series.label+' ('+percent+'%)</span>');
+		}
+
+		plotPie = function(){
+			var datax = [
+			{ label: "Grade A",
+    			data : parseInt( (Math.random() * 100) , 10) + 1,
+    			color: Utility.getBrandColor('info')},
+			{ label: "Grade B",  data : parseInt( (Math.random() * 10) , 10)*4 + 1, color: Utility.getBrandColor('success')},
+			{ label: "Grade C", data : parseInt( (Math.random() * 10) , 10)*3 + 1, color: Utility.getBrandColor('warning')},
+			{ label: "Grade D", data : parseInt( (Math.random() * 10) , 10) + 1, color: Utility.getBrandColor('danger')}
+			];
+
+    		$.plot($("#interactive"), datax,
+    		{
+    			series: {
+    				pie: {
+    					show: true
+    				}
+    			},
+    			grid: {
+    				hoverable: true,
+    				clickable: true
+    			},
+    			legend: {
+    				show: false
+    			},
+    			tooltip: true,
+    			tooltipOpts: {
+    				content: "%p.0%, %s"
     			}
-    		},
-    		grid: {
-    			hoverable: true,
-    			clickable: true
-    		},
-    		legend: {
-    			show: false
-    		},
-    		tooltip: true,
-    		tooltipOpts: {
-    			content: "%p.0%, %s"
-    		}
 
-    	});
-    	$("#interactive").bind("plothover", pieHover);
+    		});
+    		$("#interactive").bind("plothover", pieHover);
+		}
+		plotPie();
 
+
+    	plotPercentagePieChart = function(isUpdate){
+
+			if(isUpdate) {
+	            $('.easypiechart#chart1')
+	            .data('easyPieChart')
+	            .update(Math.random()*100);
+	        }
+	        else {
+			    try{
+			        $('.easypiechart#chart1').easyPieChart({
+			            barColor: "#00bcd4",
+			            trackColor: 'rgba(255,255,255,0.1)',
+			            scaleColor: 'transparent',
+			            scaleLength: 8,
+			            lineCap: 'round',
+			            lineWidth: 4,
+			            size: 144,
+			            onStep: function(from, to, percent) {
+			                $(this.el).find('.percent').text(Math.round(percent));
+			            }
+			        });
+			    }
+			    catch(e){ console.log('error', e); }
+			}
+
+		};
+		plotPercentagePieChart(false);
 
     	$('#main_btn').on('click', function(e){
     		e.preventDefault();
@@ -714,59 +758,13 @@
     			$('.gradeX').show();
     			$('#show_count').text('Total Students: 6');
     		}
+
+    		plotPie();
+    		plotPercentagePieChart(true);
     	});
 
-		// Easypie chart
-	    try{
-	        $('.easypiechart#chart1').easyPieChart({
-	            barColor: "#00bcd4",
-	            trackColor: 'rgba(255,255,255,0.1)',
-	            scaleColor: 'transparent',
-	            scaleLength: 8,
-	            lineCap: 'round',
-	            lineWidth: 4,
-	            size: 144,
-	            onStep: function(from, to, percent) {
-	                $(this.el).find('.percent').text(Math.round(percent));
-	            }
-	        });
 
-
-		    new Chartist.Line('#areaChart', {
-		        labels: [1, 2, 3, 4, 5, 6, 7],
-		        series: [
-		            [5, 9, 7, 8, 5, 3, 5]
-		        ]
-		    }, {
-		    low: 0,
-		    showArea: true,
-		    fullWidth: true,
-		    fullWidth: true,
-		    showPoint: false,
-		    colors:["#f44336"],
-		    axisY: {
-		        showGrid: false,
-		        showLabel: false,
-		        offset: 0
-		    },
-		        axisX:{
-		        showGrid: false,
-		        showLabel: false,
-		        offset: 0
-		      },
-
-		        lineSmooth: true,
-		    });
-	    }
-	    catch(e){}
-
-		function pieHover(event, pos, obj)
-		{
-			if (!obj)
-				return;
-			percent = parseFloat(obj.series.percent).toFixed(2);
-			$("#hover").html('<span style="font-weight: bold; color: '+obj.series.color+'">'+obj.series.label+' ('+percent+'%)</span>');
-		}
+	});
     </script>
     </body>
 </html>
