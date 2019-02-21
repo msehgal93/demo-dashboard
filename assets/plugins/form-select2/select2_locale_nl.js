@@ -1,15 +1,1 @@
-/**
- * Select2 Dutch translation
- */
-(function ($) {
-    "use strict";
-
-    $.extend($.fn.select2.defaults, {
-        formatNoMatches: function () { return "Geen resultaten gevonden"; },
-        formatInputTooShort: function (input, min) { var n = min - input.length; return "Vul " + n + " karakter" + (n == 1? "" : "s") + " meer in"; },
-        formatInputTooLong: function (input, max) { var n = input.length - max; return "Vul " + n + " karakter" + (n == 1? "" : "s") + " minder in"; },
-        formatSelectionTooBig: function (limit) { return "Maximaal " + limit + " item" + (limit == 1 ? "" : "s") + " toegestaan"; },
-        formatLoadMore: function (pageNumber) { return "Meer resultaten laden..."; },
-        formatSearching: function () { return "Zoeken..."; },
-    });
-})(jQuery);
+!function(e){"use strict";e.extend(e.fn.select2.defaults,{formatNoMatches:function(){return"Geen resultaten gevonden"},formatInputTooShort:function(e,n){var t=n-e.length;return"Vul "+t+" karakter"+(1==t?"":"s")+" meer in"},formatInputTooLong:function(e,n){var t=e.length-n;return"Vul "+t+" karakter"+(1==t?"":"s")+" minder in"},formatSelectionTooBig:function(e){return"Maximaal "+e+" item"+(1==e?"":"s")+" toegestaan"},formatLoadMore:function(e){return"Meer resultaten laden..."},formatSearching:function(){return"Zoeken..."}})}(jQuery);

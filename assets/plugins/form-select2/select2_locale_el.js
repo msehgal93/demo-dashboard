@@ -1,17 +1,1 @@
-/**
- * Select2 <Language> translation.
- * 
- * Author: Your Name <your@email>
- */
-(function ($) {
-    "use strict";
-
-    $.extend($.fn.select2.defaults, {
-        formatNoMatches: function () { return "Δεν βρέθηκαν αποτελέσματα"; },
-        formatInputTooShort: function (input, min) { var n = min - input.length; return "Παρακαλούμε εισάγετε " + n + " περισσότερους χαρακτήρες" + (n == 1 ? "" : "s"); },
-        formatInputTooLong: function (input, max) { var n = input.length - max; return "Παρακαλούμε διαγράψτε " + n + " χαρακτήρες" + (n == 1 ? "" : "s"); },
-        formatSelectionTooBig: function (limit) { return "Μπορείτε να επιλέξετε μόνο " + limit + " αντικείμενο" + (limit == 1 ? "" : "s"); },
-        formatLoadMore: function (pageNumber) { return "Φόρτωση περισσότερων..."; },
-        formatSearching: function () { return "Αναζήτηση..."; }
-    });
-})(jQuery);
+!function(t){"use strict";t.extend(t.fn.select2.defaults,{formatNoMatches:function(){return"Δεν βρέθηκαν αποτελέσματα"},formatInputTooShort:function(t,n){var o=n-t.length;return"Παρακαλούμε εισάγετε "+o+" περισσότερους χαρακτήρες"+(1==o?"":"s")},formatInputTooLong:function(t,n){var o=t.length-n;return"Παρακαλούμε διαγράψτε "+o+" χαρακτήρες"+(1==o?"":"s")},formatSelectionTooBig:function(t){return"Μπορείτε να επιλέξετε μόνο "+t+" αντικείμενο"+(1==t?"":"s")},formatLoadMore:function(t){return"Φόρτωση περισσότερων..."},formatSearching:function(){return"Αναζήτηση..."}})}(jQuery);

@@ -1,15 +1,1 @@
-/**
- * Select2 Japanese translation.
- */
-(function ($) {
-    "use strict";
-
-    $.extend($.fn.select2.defaults, {
-        formatNoMatches: function () { return "該当なし"; },
-        formatInputTooShort: function (input, min) { var n = min - input.length; return "後" + n + "文字入れてください"; },
-        formatInputTooLong: function (input, max) { var n = input.length - max; return "検索文字列が" + n + "文字長すぎます"; },
-        formatSelectionTooBig: function (limit) { return "最多で" + limit + "項目までしか選択できません"; },
-        formatLoadMore: function (pageNumber) { return "読込中･･･"; },
-        formatSearching: function () { return "検索中･･･"; }
-    });
-})(jQuery);
+!function(t){"use strict";t.extend(t.fn.select2.defaults,{formatNoMatches:function(){return"該当なし"},formatInputTooShort:function(t,n){return"後"+(n-t.length)+"文字入れてください"},formatInputTooLong:function(t,n){return"検索文字列が"+(t.length-n)+"文字長すぎます"},formatSelectionTooBig:function(t){return"最多で"+t+"項目までしか選択できません"},formatLoadMore:function(t){return"読込中･･･"},formatSearching:function(){return"検索中･･･"}})}(jQuery);

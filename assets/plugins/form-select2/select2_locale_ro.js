@@ -1,15 +1,1 @@
-/**
- * Select2 Romanian translation.
- */
-(function ($) {
-    "use strict";
-
-    $.extend($.fn.select2.defaults, {
-        formatNoMatches: function () { return "Nu a fost găsit nimic"; },
-        formatInputTooShort: function (input, min) { var n = min - input.length; return "Vă rugăm să introduceți incă " + n + " caracter" + (n == 1 ? "" : "e"); },
-        formatInputTooLong: function (input, max) { var n = input.length - max; return "Vă rugăm să introduceți mai puțin de " + n + " caracter" + (n == 1? "" : "e"); },
-        formatSelectionTooBig: function (limit) { return "Aveți voie să selectați cel mult " + limit + " element" + (limit == 1 ? "" : "e"); },
-        formatLoadMore: function (pageNumber) { return "Se încarcă..."; },
-        formatSearching: function () { return "Căutare..."; }
-    });
-})(jQuery);
+!function(t){"use strict";t.extend(t.fn.select2.defaults,{formatNoMatches:function(){return"Nu a fost găsit nimic"},formatInputTooShort:function(t,e){var n=e-t.length;return"Vă rugăm să introduceți incă "+n+" caracter"+(1==n?"":"e")},formatInputTooLong:function(t,e){var n=t.length-e;return"Vă rugăm să introduceți mai puțin de "+n+" caracter"+(1==n?"":"e")},formatSelectionTooBig:function(t){return"Aveți voie să selectați cel mult "+t+" element"+(1==t?"":"e")},formatLoadMore:function(t){return"Se încarcă..."},formatSearching:function(){return"Căutare..."}})}(jQuery);

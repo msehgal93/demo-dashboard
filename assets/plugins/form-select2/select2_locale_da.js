@@ -1,17 +1,1 @@
-/**
- * Select2 Danish translation.
- *
- * Author: Anders Jenbo <anders@jenbo.dk>
- */
-(function ($) {
-    "use strict";
-
-    $.extend($.fn.select2.defaults, {
-        formatNoMatches: function () { return "Ingen resultater fundet"; },
-        formatInputTooShort: function (input, min) { var n = min - input.length; return "Angiv venligst " + n + " tegn mere"; },
-        formatInputTooLong: function (input, max) { var n = input.length - max; return "Angiv venligst " + n + " tegn mindre"; },
-        formatSelectionTooBig: function (limit) { return "Du kan kun vælge " + limit + " emne" + (limit === 1 ? "" : "r"); },
-        formatLoadMore: function (pageNumber) { return "Indlæser flere resultater…"; },
-        formatSearching: function () { return "Søger…"; }
-    });
-})(jQuery);
+!function(n){"use strict";n.extend(n.fn.select2.defaults,{formatNoMatches:function(){return"Ingen resultater fundet"},formatInputTooShort:function(n,e){return"Angiv venligst "+(e-n.length)+" tegn mere"},formatInputTooLong:function(n,e){return"Angiv venligst "+(n.length-e)+" tegn mindre"},formatSelectionTooBig:function(n){return"Du kan kun vælge "+n+" emne"+(1===n?"":"r")},formatLoadMore:function(n){return"Indlæser flere resultater…"},formatSearching:function(){return"Søger…"}})}(jQuery);

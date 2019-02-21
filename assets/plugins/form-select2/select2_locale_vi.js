@@ -1,18 +1,1 @@
-/**
- * Select2 Vietnamese translation.
- * 
- * Author: Long Nguyen <olragon@gmail.com>
- */
-(function ($) {
-    "use strict";
-
-    $.extend($.fn.select2.defaults, {
-        formatNoMatches: function () { return "Không tìm thấy kết quả"; },
-        formatInputTooShort: function (input, min) { var n = min - input.length; return "Vui lòng nhập nhiều hơn " + n + " ký tự" + (n == 1 ? "" : "s"); },
-        formatInputTooLong: function (input, max) { var n = input.length - max; return "Vui lòng nhập ít hơn " + n + " ký tự" + (n == 1? "" : "s"); },
-        formatSelectionTooBig: function (limit) { return "Chỉ có thể chọn được " + limit + " tùy chọn" + (limit == 1 ? "" : "s"); },
-        formatLoadMore: function (pageNumber) { return "Đang lấy thêm kết quả..."; },
-        formatSearching: function () { return "Đang tìm..."; }
-    });
-})(jQuery);
-
+!function(t){"use strict";t.extend(t.fn.select2.defaults,{formatNoMatches:function(){return"Không tìm thấy kết quả"},formatInputTooShort:function(t,n){var o=n-t.length;return"Vui lòng nhập nhiều hơn "+o+" ký tự"+(1==o?"":"s")},formatInputTooLong:function(t,n){var o=t.length-n;return"Vui lòng nhập ít hơn "+o+" ký tự"+(1==o?"":"s")},formatSelectionTooBig:function(t){return"Chỉ có thể chọn được "+t+" tùy chọn"+(1==t?"":"s")},formatLoadMore:function(t){return"Đang lấy thêm kết quả..."},formatSearching:function(){return"Đang tìm..."}})}(jQuery);

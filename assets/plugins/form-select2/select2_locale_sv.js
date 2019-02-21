@@ -1,17 +1,1 @@
-/**
- * Select2 Swedish translation.
- *
- * Author: Jens Rantil <jens.rantil@telavox.com>
- */
-(function ($) {
-    "use strict";
-
-    $.extend($.fn.select2.defaults, {
-        formatNoMatches: function () { return "Inga träffar"; },
-        formatInputTooShort: function (input, min) { var n = min - input.length; return "Var god skriv in " + n + (n>1 ? " till tecken" : " tecken till"); },
-        formatInputTooLong: function (input, max) { var n = input.length - max; return "Var god sudda ut " + n + " tecken"; },
-        formatSelectionTooBig: function (limit) { return "Du kan max välja " + limit + " element"; },
-        formatLoadMore: function (pageNumber) { return "Laddar fler resultat..."; },
-        formatSearching: function () { return "Söker..."; }
-    });
-})(jQuery);
+!function(t){"use strict";t.extend(t.fn.select2.defaults,{formatNoMatches:function(){return"Inga träffar"},formatInputTooShort:function(t,n){var r=n-t.length;return"Var god skriv in "+r+(1<r?" till tecken":" tecken till")},formatInputTooLong:function(t,n){return"Var god sudda ut "+(t.length-n)+" tecken"},formatSelectionTooBig:function(t){return"Du kan max välja "+t+" element"},formatLoadMore:function(t){return"Laddar fler resultat..."},formatSearching:function(){return"Söker..."}})}(jQuery);

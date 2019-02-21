@@ -1,15 +1,1 @@
-/**
- * Select2 Hungarian translation
- */
-(function ($) {
-    "use strict";
-
-    $.extend($.fn.select2.defaults, {
-        formatNoMatches: function () { return "Nincs találat."; },
-        formatInputTooShort: function (input, min) { var n = min - input.length; return "Túl rövid. Még " + n + " karakter hiányzik."; },
-        formatInputTooLong: function (input, max) { var n = input.length - max; return "Túl hosszú. " + n + " kerekterrel több mint kellene."; },
-        formatSelectionTooBig: function (limit) { return "Csak " + limit + " elemet lehet kiválasztani."; },
-        formatLoadMore: function (pageNumber) { return "Töltés..."; },
-        formatSearching: function () { return "Keresés..."; }
-    });
-})(jQuery);
+!function(t){"use strict";t.extend(t.fn.select2.defaults,{formatNoMatches:function(){return"Nincs találat."},formatInputTooShort:function(t,e){return"Túl rövid. Még "+(e-t.length)+" karakter hiányzik."},formatInputTooLong:function(t,e){return"Túl hosszú. "+(t.length-e)+" kerekterrel több mint kellene."},formatSelectionTooBig:function(t){return"Csak "+t+" elemet lehet kiválasztani."},formatLoadMore:function(t){return"Töltés..."},formatSearching:function(){return"Keresés..."}})}(jQuery);

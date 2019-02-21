@@ -1,18 +1,1 @@
-/**
- * Select2 Norwegian translation.
- *
- * Author: Torgeir Veimo <torgeir.veimo@gmail.com>
- */
-(function ($) {
-    "use strict";
-
-    $.extend($.fn.select2.defaults, {
-        formatNoMatches: function () { return "Ingen treff"; },
-        formatInputTooShort: function (input, min) { var n = min - input.length; return "Vennligst skriv inn " + n + (n>1 ? " flere tegn" : " tegn til"); },
-        formatInputTooLong: function (input, max) { var n = input.length - max; return "Vennligst fjern " + n + " tegn"; },
-        formatSelectionTooBig: function (limit) { return "Du kan velge maks " + limit + " elementer"; },
-        formatLoadMore: function (pageNumber) { return "Laster flere resultater..."; },
-        formatSearching: function () { return "Søker..."; }
-    });
-})(jQuery);
-
+!function(n){"use strict";n.extend(n.fn.select2.defaults,{formatNoMatches:function(){return"Ingen treff"},formatInputTooShort:function(n,e){var t=e-n.length;return"Vennligst skriv inn "+t+(1<t?" flere tegn":" tegn til")},formatInputTooLong:function(n,e){return"Vennligst fjern "+(n.length-e)+" tegn"},formatSelectionTooBig:function(n){return"Du kan velge maks "+n+" elementer"},formatLoadMore:function(n){return"Laster flere resultater..."},formatSearching:function(){return"Søker..."}})}(jQuery);

@@ -1,1 +1,1 @@
-$(function() { $('.mask').inputmask(); });
+$(function(){$(".mask").inputmask()});

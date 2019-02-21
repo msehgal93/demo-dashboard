@@ -1,5 +1,1 @@
-jQuery(document).ready(function() {
-
-	$("#chat").niceScroll({horizrailenabled:false,railoffset: {left:0}});
-
-});
+jQuery(document).ready(function(){$("#chat").niceScroll({horizrailenabled:!1,railoffset:{left:0}})});

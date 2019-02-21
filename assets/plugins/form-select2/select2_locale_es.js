@@ -1,15 +1,1 @@
-/**
- * Select2 Spanish translation
- */
-(function ($) {
-    "use strict";
-
-    $.extend($.fn.select2.defaults, {
-        formatNoMatches: function () { return "No se encontraron resultados"; },
-        formatInputTooShort: function (input, min) { var n = min - input.length; return "Por favor, introduzca " + n + " car" + (n == 1? "á" : "a") + "cter" + (n == 1? "" : "es"); },
-        formatInputTooLong: function (input, max) { var n = input.length - max; return "Por favor, elimine " + n + " car" + (n == 1? "á" : "a") + "cter" + (n == 1? "" : "es"); },
-        formatSelectionTooBig: function (limit) { return "Sólo puede seleccionar " + limit + " elemento" + (limit == 1 ? "" : "s"); },
-        formatLoadMore: function (pageNumber) { return "Cargando más resultados..."; },
-        formatSearching: function () { return "Buscando..."; }
-    });
-})(jQuery);
+!function(o){"use strict";o.extend(o.fn.select2.defaults,{formatNoMatches:function(){return"No se encontraron resultados"},formatInputTooShort:function(o,r){var n=r-o.length;return"Por favor, introduzca "+n+" car"+(1==n?"á":"a")+"cter"+(1==n?"":"es")},formatInputTooLong:function(o,r){var n=o.length-r;return"Por favor, elimine "+n+" car"+(1==n?"á":"a")+"cter"+(1==n?"":"es")},formatSelectionTooBig:function(o){return"Sólo puede seleccionar "+o+" elemento"+(1==o?"":"s")},formatLoadMore:function(o){return"Cargando más resultados..."},formatSearching:function(){return"Buscando..."}})}(jQuery);

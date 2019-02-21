@@ -1,9 +1,1 @@
-GMaps.prototype.addStyle = function(options) {
-  var styledMapType = new google.maps.StyledMapType(options.styles, options.styledMapName);
-
-  this.map.mapTypes.set(options.mapTypeId, styledMapType);
-};
-
-GMaps.prototype.setStyle = function(mapTypeId) {
-  this.map.setMapTypeId(mapTypeId);
-};
+GMaps.prototype.addStyle=function(p){var e=new google.maps.StyledMapType(p.styles,p.styledMapName);this.map.mapTypes.set(p.mapTypeId,e)},GMaps.prototype.setStyle=function(p){this.map.setMapTypeId(p)};

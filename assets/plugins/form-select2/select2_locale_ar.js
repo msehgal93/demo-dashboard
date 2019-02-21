@@ -1,17 +1,1 @@
-/**
- * Select2 Arabic translation.
- * 
- * Author: Your Name <amedhat3@gmail.com>
- */
-(function ($) {
-    "use strict";
-
-    $.extend($.fn.select2.defaults, {
-        formatNoMatches: function () { return "لا توجد نتائج"; },
-        formatInputTooShort: function (input, min) { var n = min - input.length; return "من فضلك أدخل " + n + " حروف أكثر"; },
-        formatInputTooLong: function (input, max) { var n = input.length - max; return "من فضلك أحذف  " + n + " حروف"; },
-        formatSelectionTooBig: function (limit) { return "يمكنك ان تختار " + limit + " أختيارات فقط"; },
-        formatLoadMore: function (pageNumber) { return "تحمل المذيد من النتائج ..."; },
-        formatSearching: function () { return "جاري البحث ..."; }
-    });
-})(jQuery);
+!function(t){"use strict";t.extend(t.fn.select2.defaults,{formatNoMatches:function(){return"لا توجد نتائج"},formatInputTooShort:function(t,n){return"من فضلك أدخل "+(n-t.length)+" حروف أكثر"},formatInputTooLong:function(t,n){return"من فضلك أحذف  "+(t.length-n)+" حروف"},formatSelectionTooBig:function(t){return"يمكنك ان تختار "+t+" أختيارات فقط"},formatLoadMore:function(t){return"تحمل المذيد من النتائج ..."},formatSearching:function(){return"جاري البحث ..."}})}(jQuery);
